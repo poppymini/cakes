@@ -1,0 +1,93 @@
+
+<div class="list_ce" ng-repeat="val in item1">
+<div class="swiper-container">
+        <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                <a href="javascript:void(0);">
+                    <img ng-src="{{val.img}}" alt="Black and White Chocolate Mousse 黑白巧克力慕斯">                    
+                </a>
+            </div>
+                </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="details-box">
+        <div class="pro-title">
+            <h3>{{val.describe}}</h3>
+                </div>
+            <ul class="details-taste">
+                    <li>
+            
+            <img src="./images/micon-03.png" alt="君度酒">            
+            君度酒            </li>
+                    <li>
+            
+            <img src="./images/micon-03.png" alt="比利时巧克力">            
+            比利时巧克力            </li>
+                </ul>
+            <span class="details-explain">口感冰凉细腻，白巧克力慕斯的甜，与底部黑巧克力酱的苦</span>
+        <ul class="select-specifications">
+            <li><a id="J-specifications">规格数量选择<i></i></a></li>
+        </ul>
+    </div>
+    <ul class="store-info">
+            <li data-sweet="5" id="sweetList">
+            <img src="./images/sweet.png">
+            <span>参考甜度</span>
+            <div>
+                <p class="sweet-list">
+                    <i class="active"></i>
+                    <i class="active"></i>
+                    <i class="active"></i>
+                    <i class="active"></i>
+                    <i class="active"></i>
+                </p>
+            </div>
+        </li>
+            <li>
+            
+            <img src="./images/dist-time.png" alt="配送时间">            
+            <span>配送时间</span>
+            <div><p class="ship-time">现在订购最早明天 09:30配送。每日最晚配送时间21:30。</p></div>
+        </li>
+            <li>
+            
+            <img src="./images/fresh.png" alt="保鲜条件">            
+            <span>保鲜条件</span>
+            <div><p>0－4℃保藏12小时，5℃食用为佳</p></div>
+        </li>
+                <li>
+            
+            <img src="./images/accessories.png" alt="标准配件">            
+            <span>标准配件</span>
+            <div><p>含标配餐具，可添加巧克力生日牌，不含蜡烛</p></div>
+        </li>
+        </ul>
+        <div style="padding: 15px;background: #FFFFFF; margin-top: 12px;">
+        
+        {{val.search}}<br>
+Cool, silky white chocolate. Rich, bitter dark chocolate. They’re like the mismatched cop duo who spent all their time bickering but always got results. The results in this case? A dessert experience to die for. 
+        
+    </div>
+        <div class="details-img">
+    
+    <img style="DISPLAY: block" src="./images/15e99e0d1760cfef442a823fbe322030.jpg" width="100%"><br> 
+<img style="DISPLAY: block" src="./images/abbac148ff8c4e478fd0d2d8c3f201ac.png" width="100%"><br> 
+<img style="DISPLAY: block" src="./images/5d11a5a4a3dcd05da73450392b357b3e.jpg" width="100%">    
+    </div>
+    <div id="details-suspension-pop">
+        <i class="hide-button"></i>
+        <div class="details-suspension">
+        <i></i>
+            <div class="details-suspension-content">
+                <p class="details-price">￥{{val.price|number:0}}/1.0磅</p>
+                <ul class="details-options"><ul class="details-options"><li class="details-options-size"><i></i>12x12cm</li><li class="details-options-unmber"><i></i>{{val.size}}</li><li class="details-options-time"><i></i>须提前5小时预订</li></ul></ul>
+                <img src="http://static.21cake.com//themes/wap/img/1.00P-cut-12.00.jpg" alt="" class="size-img" hidden="" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                <ul class="details-suspension-size"><li class="active" data-productid="526">{{val.weight}}</li><li data-productid="">更多</li></ul>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-addcart-button">
+        <a class="join-cart" ng-click="add(true)">加入购物车</a>
+    </div>
+</div>
+</div>

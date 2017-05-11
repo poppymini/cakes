@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0">
+    <title>CC蛋糕坊</title>
+    <link rel="stylesheet" href="./css/bases.css">
+    <link rel="stylesheet" href="./css/list.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+      <script src="js/login.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="js/swiper.jquery.min.js"></script>
+     <script src="js/fly.js"></script>
+     <script src="js/center.js"></script>
+     <script src="js/zepto.js"></script>
+     <script src="js/yz.js"></script>
+     
+     <script src="js/register.js"></script>
+</head>
+<body ng-controller="cont">
+    <div class="container">
+      <div class="container-e">
+      <div class="header">
+       <div class="top_nav">
+         <div class="container-fluid nav_center1">
+          <div class="row">
+              <div class="col-xs-4 left">
+                 <img class="logo " src="./images/top-icon.png" alt="">
+                 <img class="logos" src="./images/menu-hide.png" alt="" style="display:none;">
+              </div>
+               <div class="header_top" style="display:none;">
+               <div class="container-fluid">
+               <div class="row center1">
+             <div class="col-xs-4"><div class="heads"><p><a href="#/"><img src="images/menu-home.png" alt="" class="ulImg"></p><p><span class="ulSpa">首页</span></p></a></div></div> 
+             <div class="col-xs-4"><div class="produce"><p><a href="#/index"><img src="images/menu-icon-class.png" alt="" class="ulImg"></p><p><span class="ulSpa">分类</span></p></a></div></div>
+             <div class="col-xs-4">
+              <div class="cdiv"><a href="#/login"><p><img src="images/menu-icon-per.png" alt="" class="ulImg"></p><p><span class="ulSpa">个人</span></p></a></div></div>
+         </div>
+     </div>    
+     </div> 
+              <div class="col-xs-4 center">
+                    <a href="#/"> <img id="index" src="./images/e.png" alt=""></a>
+              </div>
+              <div class="col-xs-4  right">
+              <a href="" class="city">
+                <i></i>
+                北京
+              </a>
+                  <div class="search-box">
+                  	<div id="sb-search">
+                  		<form action="">
+                  			<input type="search" placeholder="search" ng-model="searchname" id="search" name="search" class="sb-search-input" style="display: none;">
+                  			<input type="submit" class="sb-search-submit" value="">
+                  			<!-- <span class="sb-icon-search"></span> -->
+                  		</form>
+                  	</div>
+                  </div>
+              </div>
+          </div>
+    </div>
+    </div>
+    </div>
+
+    <div ng-view>
+      
+    </div>
+    <div class="clear"></div>
+        <div class="bottom_nav" style="z-index:1003;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <dl>
+                         <dt><img src="images/图层-24@2x.png" alt="">
+                         </dt>
+                           <dd>首页</dd>
+                        </dl> 
+                    </div>
+                    <div class="col-xs-3">
+                        <dl>
+                         <dt><img src="images/图层-26@2x.png" alt=""></dt>
+                           <dd>列表</dd>
+                        </dl> 
+                    </div>
+                     <div class="col-xs-3">
+                        <dl>
+                         <dt><a href="#/cart" class=
+                           "end"><img src="images/cart.png" alt=""><span style="font-size:12px" class="aspn">{{cart.length}}</span></a>
+                          </dt>
+                           <dd>购物车</dd>
+                        </dl> 
+                    </div>
+                     <div class="col-xs-3">
+                        <dl>
+                         <dt><img src="images/图层-28@2x.png" alt=""></dt>
+                           <dd>我的</dd>
+                        </dl> 
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    </div>
+</div>
+<div>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        centeredSlides: true,
+        autoplay: 2500,
+        loop:true,
+        autoplayDisableOnInteraction: false
+    });
+    </script>
+</body>
+</html>

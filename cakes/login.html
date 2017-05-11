@@ -1,0 +1,27 @@
+     <div class="main_login">
+         <div class="login_box">
+             <ul class="login_tit">
+                 <li data-id="usernameLogin" class="delu active">账号密码登录</li>
+             </ul>
+         </div>
+         <div class="login-form-group">
+             <form action="" method="post" id="pass-login-form">
+                 <input type="hidden" name="sent" value="use">
+                 <input type="hidden" name="red" value="psde">
+                 <ul class="input-list selected">
+                            <li><input type="text" placeholder="用户名/邮箱地址" name="name" maxlength="60" id="phoneName" class="name"><span class="name_info"></span</li>
+                            <li><input type="password" name="password" id="password" class="number_name" maxlength="32" placeholder="填写密码"><span class="number_info"></span></li>
+                            <li class="err-text"><!-- 请输入账号和密码 --></li>
+                        </ul>
+                        <ul class="input-list" style="display:none;">
+                    <li id="err-text"><span><!-- <i></i>请输入账号和密码 --></span></li>
+                        </ul>
+                        <a href=""><input type="submit" value="登录" class="button-submit login_btn " ng-click="check()"></a>
+             </form>
+         </div>
+         <div class="remember-me">
+            <input type="checkbox" name="rememberMe">记住账号
+            <a href="#/register" class="regs">去注册</a>
+            <a href="#/search" class="forget">忘记密码</a>
+        </div>
+     </div>

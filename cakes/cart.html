@@ -1,0 +1,23 @@
+        <ul>
+             <li ng-repeat="val in cart">
+                <img ng-src="{{val.img}}">
+                <div class="contro lisd">
+                    <p>{{val.describe}}</p>
+                    <p>￥{{val.price|number:0}}/1.0磅</p>
+                    <p>
+                    <button class="lbtn" ng-click="run(val.gid,true,false)">+</button>
+                    <input type="text" ng-model="val.num" class="ipt">
+                    <button class="rbtn"  ng-click="run(val.gid,false,false)">-</button>
+                    <!-- <br> -->
+                     <a  class="obtn abtn">￥{{val.num*val.price|number:0}}/1.0磅</a>
+                      <button ng-click="del(val.gid)" class="del btn btn-info">删除</button>
+                      </p>
+                    </div>
+            </li>
+            
+            <li ng-show="!cart.length" class="kong">你的购物车空空如也</li>
+             <div class="bottom_nav foot" style="z-index:999;">
+            <span class="apn"><a href="#/">&lt;&lt;逛不够？戳这儿 ^-^</a></span>
+            <div class="gongji"><span>共计:￥{{totalPrice|number:0}}/1.0磅</span>&nbsp;&nbsp;<button class="btn btn-danger">结  算</button></div>
+        </div>
+        </ul>

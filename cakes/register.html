@@ -1,0 +1,24 @@
+     <div class="main_register">
+         <div class="login-box register-box">
+            <div class="register-title">
+                <h2>用户注册</h2>
+            </div>
+            <form method="post" id="sign-up-form" name="myForm">
+                <ul class="input-list">
+                    <li><input type="text" id="username" placeholder="输入用户名"ng-model="datas.username" ng-pattern="/^\w{4,20}$/" ng-required="true" maxlength="11"><i></i><p ng-show="myForm.username.$invalid && myForm.username.$dirty">请填写用户名</p><p ng-show="showAllErr">请填写</p>
+                    </li>
+                    <li><input type="password" name="password" ng-model="data.password" ng-required="true" ng-patter="/^\d{6,8}$/" placeholder="密码：8～20字符，需同时包含英文和数字" maxlength="20" id="password"><i class="weak"></i> <p ng-show="myForm.password.$invalid && myForm.password.$dirty">请填写密码</p><p ng-show="showAllErr">请填写</p></li>
+                    <li><input type="password" name="repass" placeholder="确认密码" maxlength="20" id="rePassword"><i></i><span class="statel" ></li>
+                    <li id="err-text"><span><!-- <i></i>请输入账号和密码 --></span></li>
+                </ul>
+               <a href="#/login"> <input class="button-submit" type="submit" value="注册"></a>
+
+                <div class="register-remember">
+                    <label>
+                        <input type="checkbox" name="agree" checked="">已阅读并同意</label>
+                    <a href="/article-agreement-36.html">CC会员协议</a>和
+                    <a href="/article-policy-35.html">隐私保护政策</a>
+                </div>
+            </form>
+        </div>
+     </div>

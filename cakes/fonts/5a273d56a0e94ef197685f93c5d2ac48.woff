@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=0">
+    
+     <link rel="stylesheet" type="text/css" href="http://static.21cake.com/min/?f=themes/wap/css/common.css&v=20170413.0">    
+
+    
+    <title>21Cake蛋糕官网_24小时蛋糕网上订购_5小时新鲜送达！</title>
+    <link href="http://static.21cake.com//themes/wap/img/app_h5.png" rel="apple-touch-icon-precomposed">
+    <link href="http://static.21cake.com//themes/wap/img/app_h5.png" rel="Shortcut Icon" type="image/x-icon">
+    <script type="text/javascript">
+        var Global = {
+            'domain': '.21cake.com',
+            'wapDomain': 'http://m.21cake.com/',
+            'apiDomain': 'http://api.21cake.com/',
+            'siteDomain': 'http://www.21cake.com/',
+            'wxDomain': 'http://wx.21cake.com/',
+            'staticDomain': 'http://static.21cake.com/'
+        };
+    </script>
+    
+     <script type="text/javascript" src="http://static.21cake.com/min/?f=themes/wap/js/zepto.min.js&v=20170410.0"></script>    
+</head>
+<body>
+<div class="header-box">
+    <div class="top-header">
+        <div class="open-app" hidden>
+            <i></i>
+            
+            <img src="http://static.21cake.com//themes/wap/img/app-icon.png" alt="21cake" />            
+            <!-- <img src="/themes/wap/img/app-icon.png" alt=""> -->
+            <span>21cake<br>更流畅的购物体验</span>
+            <a href="javascript:void(0);">打开app</a>
+        </div>
+        <!-- 全站公告 -->
+        <div class="station-notice">
+            <i></i>
+            <p><span></span></p>
+        </div>
+        <!-- 全站公告结束 -->
+            <div class="title-box">
+            <a href="javascript:void(0);" class="left-icon"><i></i></a>
+            <a href="/" >
+            
+            <img src="http://static.21cake.com/themes/wap/img/logo.png" class="title-logo" alt="21cake logo" />            
+            <!-- <img src="/themes/wap/img/logo.png" class="title-logo"> -->
+            </a>
+            <div class="right-cart-city">
+                <a href="javascript:void(0);" class="city"><i></i>上海</a>
+                <a href="/cart.do" class="top-cart cart-count-icon"><i></i></a>
+            </div>
+            <div class="top-header-menu">
+                <div>
+                    <a href="/" title="" class="menu-home"><i></i><span>首页</span></a>
+                    <a href="/gallery-index---0---1.html" title="" class="menu-class"><i></i><span>分类</span></a>
+                    <a href="/member.html" title=""  class="menu-per"><i></i><span>个人</span></a>
+                </div>
+             </div>
+        </div>
+            </div>
+</div>
+
+    
+    <div class="page-find">
+    
+    <img src="http://static.21cake.com//themes/wap/img/404.png" alt="404" />    
+        <!-- <img src="/themes/wap/img/404.png"> -->
+        <p>抱歉，指定的页面未找到。</p>
+    </div>
+
+<div class="footer">Copyright© 21Cake蛋糕官网商城 2007-2017, 版权所有<br>
+京ICP备14006254号-1</div>
+
+
+ <script type="text/javascript" src="http://static.21cake.com/min/?f=/themes/site/js/tools.js,/themes/wap/js/tips.js,/themes/wap/js/weixin.js,/themes/wap/js/common.js&v=20170410.0"></script>
+
+<script type="text/javascript">
+    var cache = {
+        saleCity: {},
+        currentCityJson: null,
+        currentCityId: null,
+        currentCityStr: '上海市',
+        channel: 'wap',
+        appUrl: null,
+        hasLogin: false,
+        init: function () {
+            var saleCity = Cookie.read('sale_city');
+            this.currentCityJson = saleCity === null ? null : JSON.parse(decodeURIComponent(saleCity));
+            this.currentCityId = Cookie.read('cake_city_id');
+            this.appUrl = 'join10://home';
+            this.setSaleCity();
+        },
+        setAppUrl: function (url) {
+            // 打开分类 join10://category?id=
+            // 打开商品 join10://goods?id=&type=
+            // 打开购物车 join10://cart
+            // 打开首页 join10://home
+            this.appUrl = url;
+        },
+        getAppUrl: function () {
+            return this.appUrl;
+        },
+        setSaleCity: function () {
+            
+            cache.saleCity = JSON.parse('[{"id":"1","name":"\u4e0a\u6d77","region_id":"22"},{"id":"2","name":"\u5317\u4eac","region_id":"2"},{"id":"3","name":"\u5929\u6d25","region_id":"43"},{"id":"4","name":"\u676d\u5dde","region_id":"3134"},{"id":"5","name":"\u65e0\u9521","region_id":"1717"},{"id":"6","name":"\u82cf\u5dde","region_id":"1692"},{"id":"7","name":"\u5e7f\u5dde","region_id":"424"},{"id":"8","name":"\u6df1\u5733","region_id":"524"}]');
+            
+        },
+        getSaleCity: function () {
+            return cache.saleCity;
+        },
+        setCurrentCityStr: function (str) {
+            cache.currentCityStr = str;
+        },
+        getCurrentCity: function () {
+            return cache.currentCityJson;
+        },
+        getSaleCityHtml: function () {
+            var html = '';
+            html += '<div class="bomb-box" id="select-city">';
+            html += '<i></i>';
+            html += '<div class="bomb-box-content">';
+            html += '<div class="bomb-box-content-text">';
+            html += '<div class="home-select-city">';
+            html += '<p class="home-select-title">选择城市</p>';
+            html += '<ul>';
+            for (var i in cache.saleCity) {
+                if (!cache.saleCity.hasOwnProperty(i)) {
+                    continue;
+                }
+                var city = cache.saleCity[i];
+                if (cache.currentCityStr == city.name + '市') {
+                    html += '<li class="active"><a href="javascript:void(0);" class="city-id-' + city.id + '" data-json=\'' + JSON.stringify(city).toString() + '\'>' + city.name + '</a></li>';
+                } else {
+                    html += '<li><a href="javascript:void(0);" class="city-id-' + city.id + '" data-json=\'' + JSON.stringify(city).toString() + '\'>' + city.name + '</a></li>';
+                }
+            }
+            html += '</ul>';
+            html += '<a href="javascript:void(0);" class="city-select-button">确定</a>';
+            html += '<p class="select-text">*切换城市将清空购物车</p>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+            return html;
+        }
+    };
+    cache.init();
+    function checkCurrentCity() {
+        var currentCity = cache.getCurrentCity();
+        var currentCityId = 1;
+        if (currentCity === null || !currentCity.hasOwnProperty('id') || !currentCity.hasOwnProperty('name') || !currentCity.hasOwnProperty('region_id') || !currentCity.hasOwnProperty('first')) {
+            getCurrentPosition();
+            currentCityId = 1;
+        } else {
+            changeSaleCity(cache.getCurrentCity());
+            currentCityId = currentCity.id;
+        }
+        if (cache.currentCityId === null || cache.currentCityId === undefined || cache.currentCityId != currentCityId) {
+            cache.currentCityId = currentCityId;
+            Cookie.write('cake_city_id', cache.currentCityId, {
+                duration : 365,
+                domain : '.21cake.com'
+            });
+        }
+    }
+    checkCurrentCity();
+    function checkAppDownload() {
+        var appDownloadExpiryTime = Cookie.read('app_download_expiry_time');
+        var ua = window.ua();
+        if (appDownloadExpiryTime === null && !ua.weixin) {
+            $('.open-app').show();
+            return true;
+        }
+        var date = new Date();
+        if (date.getTime() - appDownloadExpiryTime <= 100 * 24 * 60 * 60 * 1000) {
+            return true;
+        }
+    }
+    checkAppDownload();
+    $('.open-app i').on('touchend', function () {
+        var date = new Date();
+        Cookie.write('app_download_expiry_time', date.getTime(), {
+            duration: 100,
+            domain: Global.domain
+        });
+        $('.open-app').hide();
+        fuc.topHeaderHgight();
+    });
+    var lat = null;
+    var lng = null;
+    function getCurrentPosition() {
+        popUpWindow({
+            title: '加载中...',
+            popType: 4
+        });
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var script = document.createElement("script");
+                script.src = "http://api.map.baidu.com/api?v=2.0&ak=7kimGedv6NrUVr1UUtokV1c7&callback=getPosition";
+                document.body.appendChild(script);
+                lat = position.coords.latitude;
+                lng = position.coords.longitude;
+            }, function () {
+                $('body').append(cache.getSaleCityHtml());
+                $('#select-city').show();
+                popUpWindow.closePop();
+            });
+        } else {
+            $('body').append(cache.getSaleCityHtml());
+            $('#select-city').show();
+            popUpWindow.closePop();
+        }
+    }
+    function getPosition() {
+        var point = new BMap.Point(lng, lat);
+        var myGeo = new BMap.Geocoder();
+        myGeo.getLocation(point, function (result) {
+            var city = String(result.addressComponents.city);
+            cache.setCurrentCityStr(city);
+            $('body').append(cache.getSaleCityHtml());
+            $('#select-city').show();
+            popUpWindow.closePop();
+        });
+    }
+    function writeSaleCityCookie(saleCity) {
+        // 为兼容之前版本的cookie，添加first
+        var cityJson = JSON.parse(saleCity);
+        cityJson.first = 'ok';
+        // 设置cookie
+        Cookie.write('sale_city', JSON.stringify(cityJson), {
+            duration: 365,
+            domain: Global.domain
+        });
+        Cookie.write('cake_city_id', cityJson.id, {
+            duration : 365,
+            domain : '.21cake.com'
+        });
+        location.href = location.href;
+    }
+    window.writeSaleCityCookie = writeSaleCityCookie;
+    function changeSaleCity(currentCity) {
+        cache.setCurrentCityStr(currentCity.name + '市');
+        $('.right-cart-city .city').html('<i></i>' + currentCity.name);
+    }
+    $('.right-cart-city .city').click(function () {
+        $('body').append(cache.getSaleCityHtml());
+        $('#select-city').show();
+    });
+    $('body').on('click', '#select-city i,#select-city .city-select-button', function () {
+        if (cache.getCurrentCity() === null) {
+            writeSaleCityCookie($('#select-city li.active a').attr('data-json'));
+        } else {
+            clearCart($('#select-city li.active a').attr('data-json'));
+        }
+    });
+    $('body').on('touchend', '#select-city li', function () {
+        $('#select-city li').removeClass('active');
+        $(this).addClass('active');
+    });
+    function clearCart(cityJson) {
+        var currentCity = cache.getCurrentCity();
+        if (currentCity.name === $('#select-city li.active a').html()) {
+            $('#select-city').hide();
+            return true;
+        }
+        $.post('/cart-empty.do', {}, function (res) {
+            if (res.status !== 'ok') {
+                popUpWindow({
+                    title: res.message,
+                    popType: 2
+                });
+                return false;
+            }
+            // 设置cookie
+            Cookie.delete('sale_city');
+            writeSaleCityCookie(cityJson);
+        }, 'json');
+    }
+    $('.open-app a').click(function () {
+        openApp();
+    });
+    function openApp() {
+        location.href = cache.getAppUrl();
+        setTimeout(function () {
+            location.href = '/appdown.html?source=wap';
+        }, 500);
+    };
+    var fuc= {};
+    fuc.topHeaderHgight = function(){
+        var headerChild = $(".top-header").children();
+        var headerHeight = 0;
+        headerChild.each(function() {
+            headerHeight += $(this).height();
+        });
+        $('.header-box').css('height',headerHeight)
+    };
+    fuc.topHeaderHgight();
+    function cartAmount() {
+        CAKE.cart.ajax.amount(function (response) {
+            if (CAKE.responseSuccess(response) && response['data']['amount'] > 0) {
+                $('.cart-count-icon').html('<i></i><span>'+response['data']['amount']+'</span>');
+            }
+        });
+    }
+    cartAmount();
+    window.cartAmount = cartAmount;
+    if (Cookie.read('L[member]')) {
+        window._ozuid = Cookie.read('L[member]');
+    }
+</script>
+
+
+
+ <script type="text/javascript" src="http://static.21cake.com/min/?f=/themes/site/js/analysis.js&v=20170410.0"></script><script type="text/javascript">
+    var a = new Analysis();
+    a.subscribe('Oadz');
+    a.init();
+    window.analysis = a;
+</script>
+
+</body>
+</html>

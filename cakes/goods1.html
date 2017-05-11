@@ -1,0 +1,24 @@
+<div class="clear"></div>
+     <div class="container-fluid nav_center">
+         <div class="row center1">
+             <div class="col-xs-4"  ng-click="set('price')">{{val=="+price"?"价格":"价格"}}</div> 
+             <div class="col-xs-4"  ng-click="set('number')">{{val=="+number"?"销量优先":"销量优先"}}</div>
+             <div class="col-xs-4" ng-click="set('describe')">
+                <span>{{val=="+describe"?"全部宝贝":"全部宝贝"}}</span>
+             </div>
+         </div>
+     </div>
+        <div class="main_ce">
+        <ul id="ul">
+                <li ng-repeat="val in data|filter:{describe:searchname}|orderBy:val|view:bool">
+                    <a href="#/list" ng-click="addCar1(val.gid)"><img ng-src="{{val.img}}" class="buy"></a>
+                    <div class="contro">
+                        <p>{{val.describe}}</p>
+                        <p><span>￥{{val.price|number:0}}/1.0磅</span>
+                            <a class="obtn addcar" ng-click="run(val.gid,true,true)"><img ng-src="{{val.imgs}}" alt="" class="aimg"></a>
+                        </p>
+                         
+                    </div>
+               </li>
+        </ul>
+        </div>
